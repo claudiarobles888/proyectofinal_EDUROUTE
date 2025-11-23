@@ -1,5 +1,5 @@
 public class Estudiante {
-    private String id;
+    private String idEst;
     private String nombre;
     private String curso;
     private String direccion;
@@ -7,8 +7,8 @@ public class Estudiante {
     private Parada paradaAsignada;
     private boolean ausente;
 
-    public Estudiante(String id, String nombre, String curso, String direccion, String prioridad) {
-        this.id = id;
+    public Estudiante(String idEst, String nombre, String curso, String direccion, String prioridad) {
+        this.idEst = idEst;
         this.nombre = nombre;
         this.curso = curso;
         this.direccion = direccion;
@@ -28,12 +28,12 @@ public class Estudiante {
         this.ausente = true;
     }
 
-    public String getId() {
-        return id;
+    public String getIdEst() {
+        return idEst;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String idEst) {
+        this.idEst = idEst;
     }
 
     public String getNombre() {
@@ -75,7 +75,7 @@ public class Estudiante {
     @Override
     public String toString() {
         return "Estudiante" +
-                "\nid=" + id +
+                "\nid=" + idEst +
                 "\nnombre=" + nombre +
                 "\ncurso=" + curso +
                 "\ndireccion=" + direccion +

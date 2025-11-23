@@ -22,7 +22,7 @@ private List<Estudiante> estudiantes;
     }
 
     public void eliminarEstudiante(String idEstudiante){
-        estudiantes.removeIf(e -> e.getId().equals(idEstudiante));
+        estudiantes.removeIf(e -> e.getIdEst().equals(idEstudiante));
     }
 
     public List<Estudiante> listarEstudiantes(){

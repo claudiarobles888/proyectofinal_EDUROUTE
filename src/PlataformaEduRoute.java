@@ -17,7 +17,12 @@ public class PlataformaEduRoute {
         btnIngresarEst.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String idEst = txtIdEstudiante.getText();
+                String nombre = txtNombreEstudiante.getText();
+                String curso = txtCurso.getText();
+                String direccion = cbDireccion.getSelectedItem().toString();
+                String prioridad = cbPrioridad.getSelectedItem().toString();
+                String paradaAsignada = cbParada.getSelectedItem().toString();
             }
         });
     }
