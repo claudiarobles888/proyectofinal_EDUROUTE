@@ -6,6 +6,9 @@ public class Estudiante {
     private String prioridad;
     private Parada paradaAsignada;
     private boolean ausente;
+    private String numeroRuta;
+    private String zona;
+    private String sector;
 
     public Estudiante(String idEst, String nombre, String curso, String direccion, String prioridad) {
         this.idEst = idEst;
@@ -26,6 +29,10 @@ public class Estudiante {
 
     public void marcarAusente(){
         this.ausente = true;
+    }
+
+    private void marcarPresente(){
+        this.ausente = false;
     }
 
     public String getIdEst() {
@@ -72,6 +79,22 @@ public class Estudiante {
         return ausente;
     }
 
+    public String getNumeroRuta() {
+        return numeroRuta;
+    }
+
+    public void setNumeroRuta(String numeroRuta) {
+        this.numeroRuta = numeroRuta;
+    }
+
+    public String getZona() {
+        return zona;
+    }
+
+    public String getSector() {
+        return sector;
+    }
+
     @Override
     public String toString() {
         return "Estudiante" +
@@ -79,6 +102,10 @@ public class Estudiante {
                 "\nnombre=" + nombre +
                 "\ncurso=" + curso +
                 "\ndireccion=" + direccion +
-                "\nprioridad=" + prioridad;
+                "\nprioridad=" + prioridad +
+                "\nnumero de ruta=" + numeroRuta +
+                "\nzona=" + zona +
+                "\nsector=" + sector +
+                "\nparada=" + (paradaAsignada != null ? paradaAsignada.getNombreParada(): "Sin asignar");
     }
 }

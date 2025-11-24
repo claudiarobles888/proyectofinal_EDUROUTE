@@ -31,7 +31,7 @@ public class Bus {
     }
 
     public List<Estudiante> listarEstudiantes(){
-        return estudiantes;
+        return new ArrayList<>(estudiantes);
     }
 
     public boolean capacidadMinimaBusCumplida(){
@@ -49,7 +49,7 @@ public class Bus {
 
 
     public List<Conductor> listarConductores(){
-        return conductores;
+        return new ArrayList<>(conductores);
     }
 
     public boolean estadoDisponible(){
@@ -79,5 +79,9 @@ public class Bus {
         return estudiantes.size();
     }
 
+    @Override
+    public String toString(){
+        return "Bus{" +placa+", id="+idBus+", ocupado="+estudiantes.size()+"}";
+    }
 
 }

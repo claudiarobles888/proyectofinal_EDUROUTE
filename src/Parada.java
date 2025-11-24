@@ -17,8 +17,10 @@ private List<Estudiante> estudiantes;
     }
 
     public void agregarEstudiante(Estudiante e){
-        estudiantes.add(e);
-        e.asignarParada(this);
+        if(!estudiantes.contains(e)){
+            estudiantes.add(e);
+            e.asignarParada(this);
+        }
     }
 
     public void eliminarEstudiante(String idEstudiante){
@@ -26,7 +28,7 @@ private List<Estudiante> estudiantes;
     }
 
     public List<Estudiante> listarEstudiantes(){
-        return estudiantes;
+        return new ArrayList<>(estudiantes);
     }
 
     public int obtenerTiempoEstimado(){
@@ -49,14 +51,6 @@ private List<Estudiante> estudiantes;
         this.nombreParada = nombreParada;
     }
 
-    public int getTiempoEstimado() {
-        return tiempoEstimado;
-    }
-
-    public void setTiempoEstimado(int tiempoEstimado) {
-        this.tiempoEstimado = tiempoEstimado;
-    }
-
     public String getUbicacion() {
         return ubicacion;
     }
@@ -65,11 +59,13 @@ private List<Estudiante> estudiantes;
         this.ubicacion = ubicacion;
     }
 
-    public List<Estudiante> getEstudiantes() {
-        return estudiantes;
-    }
-
-    public void setEstudiantes(List<Estudiante> estudiantes) {
-        this.estudiantes = estudiantes;
+    @Override
+    public String toString() {
+        return "Parada" +
+                "\nidParada=" + idParada +
+                "\nnombreParada=" + nombreParada +
+                "\ntiempoEstimado=" + tiempoEstimado +
+                "\nubicacion=" + ubicacion +
+                "\nestudiantes=" + estudiantes.size();
     }
 }

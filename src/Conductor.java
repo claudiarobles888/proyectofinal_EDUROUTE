@@ -28,4 +28,9 @@ public class Conductor {
     public String getNombreConductor() {
         return nombreConductor;
     }
+
+    @Override
+    public String toString() {
+        return  nombreConductor + "("+idConductor+")";
+    }
 }

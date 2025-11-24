@@ -5,12 +5,16 @@ public class Ruta {
 private String idRuta;
 private String nombreRuta;
 private String numeroRuta;
+private String zona;
+private List<String> sectoresPrincipales;
 private List<Parada> paradas;
 
-    public Ruta(String idRuta, String nombreRuta, String numeroRuta) {
+    public Ruta(String idRuta, String nombreRuta, String numeroRuta, String zona, List<String> sectoresPrincipales) {
         this.idRuta = idRuta;
         this.nombreRuta = nombreRuta;
         this.numeroRuta = numeroRuta;
+        this.zona = zona;
+        this.sectoresPrincipales = new ArrayList<>(sectoresPrincipales);
         this.paradas = new ArrayList<>();
     }
 
@@ -23,7 +27,7 @@ private List<Parada> paradas;
     }
 
     public List<Parada> listarParadas(){
-        return paradas;
+        return new ArrayList<>(paradas);
     }
 
     public List<Estudiante> listarEstudiantes(){
@@ -35,7 +39,32 @@ private List<Parada> paradas;
     }
 
     public int calcularTiempoTotal(){
-        return paradas.stream().mapToInt(p -> p.obtenerTiempoEstimado()).sum();
+        return paradas.stream().mapToInt(Parada::obtenerTiempoEstimado).sum();
+    }
+
+    public String getIdRuta() {
+        return idRuta;
+    }
+
+    public String getNombreRuta() {
+        return nombreRuta;
+    }
+
+    public String getNumeroRuta() {
+        return numeroRuta;
+    }
+
+    public String getZona() {
+        return zona;
+    }
+
+    public List<String> getSectoresPrincipales() {
+        return new ArrayList<>(sectoresPrincipales);
+    }
+
+    @Override
+    public String toString() {
+        return "Ruta{" + numeroRuta + " - " + nombreRuta + " (" + zona + ")}";
     }
 
 }
