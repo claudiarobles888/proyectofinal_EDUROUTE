@@ -34,7 +34,6 @@ private List<Estudiante> estudiantes;
     public int obtenerTiempoEstimado(){
         return tiempoEstimado;
     }
-
     public String getIdParada() {
         return idParada;
     }
