@@ -1,6 +1,6 @@
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Recorrido {
@@ -11,6 +11,7 @@ public class Recorrido {
     private LocalTime horaInicio;
     private LocalTime horaFin;
     private Ruta ruta;
+    private List<String> eventos;
 
     public Recorrido(String idRecorrido, LocalDate fecha, String zona, Ruta ruta) {
         this.idRecorrido = idRecorrido;
@@ -18,28 +19,57 @@ public class Recorrido {
         this.zona = zona;
         this.ruta = ruta;
         this.estado = "Pendiente";
+        this.eventos = new ArrayList<>();
     }
 
     public void inicio(){
         this.horaInicio = LocalTime.now();
         this.estado = "En curso";
+        eventos.add("Recorrido " + idRecorrido + " iniciado a las " + horaInicio);
     }
 
     public void finalizar(){
         this.horaFin = LocalTime.now();
         this.estado = "Finalizado";
+        eventos.add("Recorrido " + idRecorrido + " finalizado a las " + horaFin);
     }
 
     public void registrarSubida(Estudiante e){
-        System.out.println("Sube: " +e.getNombre());
+        String msg = "Sube: " + e.getNombre() +
+                " en " + (e.obtenerParada() != null ? e.obtenerParada().getNombreParada() : "parada desconocida");
+        System.out.println(msg);
+        eventos.add(msg);
     }
 
     public void registrarBajada(Estudiante e){
-        System.out.println("Baja: " +e.getNombre());
+        String msg = "Baja: " + e.getNombre();
+        System.out.println(msg);
+        eventos.add(msg);
+    }
+
+    public void registrarAusente(Estudiante e){
+        String msg = "ATENCIÓN TRANSPORTISTA: Estudiante AUSENTE -> " + e.getNombre();
+        System.out.println(msg);
+        eventos.add(msg);
     }
 
     public void replanificarAusencia (List<Estudiante> estudiantes){
-        System.out.println("Replanificando recorrido");
+        eventos.add("Replanificando recorrido por estudiantes ausentes (" + estudiantes.size() + ")");
+    }
+
+    public Ruta getRuta() {
+        return ruta;
+    }
+
+    public List<String> getEventos() {
+        return new ArrayList<>(eventos);
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public String getIdRecorrido() {
+        return idRecorrido;
     }
 }
-

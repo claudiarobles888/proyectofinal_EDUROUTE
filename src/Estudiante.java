@@ -31,9 +31,7 @@ public class Estudiante {
         this.ausente = true;
     }
 
-    private void marcarPresente(){
-        this.ausente = false;
-    }
+    public void marcarPresente(){ this.ausente = false; }
 
     public String getIdEst() {
         return idEst;
