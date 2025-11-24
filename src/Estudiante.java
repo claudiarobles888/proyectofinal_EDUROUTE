@@ -95,6 +95,14 @@ public class Estudiante {
         return sector;
     }
 
+    public void setZona(String zona) {
+        this.zona = zona;
+    }
+
+    public void setSector(String sector) {
+        this.sector = sector;
+    }
+
     @Override
     public String toString() {
         return "Estudiante" +

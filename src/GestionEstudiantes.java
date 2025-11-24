@@ -32,10 +32,12 @@ public class GestionEstudiantes {
         return false;
     }
 
-    public boolean asignarRuta(String idEst, String numRuta){
+    public boolean asignarRuta(String idEst, String numRuta, String zona, String sector){
         Estudiante e = buscarPorId(idEst);
         if(e != null){
             e.setNumeroRuta(numRuta);
+            e.setZona(zona);
+            e.setSector(sector);
             return true;
         }
         return false;
